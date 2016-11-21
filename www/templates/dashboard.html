@@ -1,0 +1,81 @@
+<ion-view style="/* background-image: url('img/login-processes_2.png');  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */">
+    <!--to the top menu,,,-->
+
+    <ion-content class="has-header padding myBackImg">
+
+        <!--The select inputs.-->
+        <form ng-submit="SellProducts()" class="list">
+            <div>
+
+                <label class="item item-input item-select" ng-click="changeCustomer()">
+                    <div class="input-label">
+                        Customer:
+                    </div>
+                    <spam class="pull-right">
+                        {{sale.customer.full_name|limitTo:13}}
+                    </spam>
+                    <!--<select ng-model="sale.customer">
+                      <option ng-repeat="item in customers" value="item.id">{{item.first_name}} {{item.last_name}} </option>
+                    </select>-->
+                </label>
+                <label class="item item-input">
+                    <div class="input-label">
+                        Location:
+                    </div>
+                    <span>{{sale.locationName|limitTo:24}}</span>
+                </label><!--
+        <button class="button button-clear button-small pull-right" style="background-color: #434858; color: #f5f6fa">
+          Add</button>-->
+
+
+                <div class="item item-divider title" ng-show="shoppingList.length"></div>
+
+                <!--<p ng-repeat="item in shoppingList" class="padding">-->
+                <div class="list">
+                    <ion-item class="row"  ng-repeat="item in shoppingList" style="max-height: 45px; width: 100%"
+                              on-swipe-left="removeShoppingList(item)" on-hold="updateQShoppingList(item)">
+                        <div class="col col-40">{{item.item_name|limitTo:13}}</div>
+                        <div class="col col-20">{{item.product_price}}</div>
+                        <input type="hidden" ng-model="item.item_name">
+                        <input type="hidden" ng-model="item.quantity">
+                        <input type="hidden" ng-model="item.product_price">
+                        <small class="col col-10">{{item.quantity}}</small>
+                        <button type="button" class="button button-small col col-10"  ng-click="addQShoppingList(item)">
+                            <i class="ion ion-plus" style="color: #2befbe;"></i>
+                        </button>
+                        <button type="button" class="button button-small col col-10 col-offset-10"
+                                ng-click="deleteShoppingList(item)">
+                            <i class="ion ion-minus"  style="color: red"></i>
+                        </button>
+                    </ion-item>
+                </div>
+
+                <p ng-show="!shoppingList.length" class="padding">
+                    No item in your cart.
+                </p>
+                <!-- <ionic-datepicker idate="currentDate" disablepreviousdates="true"  callback="datePickerCallback">
+                   <button class="button button-block button-positive" type="button"> {{ currentDate | date:'dd - MMMM - yyyy' }}    </button>
+                 </ionic-datepicker>-->
+            </div>
+        </form>
+        <!--<button class="button button-positive button-small pull-right"
+                style="right: 0; bottom: 0" ng-click="add_product()">Add</button>-->
+    </ion-content>
+    <!--<button class="button button-clear button-small pull-right" style="background-color: #434858; color: #f5f6fa"
+                     ng-click="add_product()">Add</button>-->
+    <div class="bar bar-subfooter text-center">
+        <button class="button col"><i class="icon ion-flash-off"></i> Suspend</button>
+        <button class="button col"  ng-click="add_product()" style=" background-color: #434858">
+            <i class="icon ion-plus" style="color: #2befbe;"></i></button>
+        <div class="col" style="background-color: #f5f6fa; color: #434858">Kshs.<span id="total" ng-model="sale.TotalAmount">{{getTotal()}}</span> </div>
+    </div>
+
+    <div class="bar bar-footer text-center">
+        <button class="button col" ng-click="cancelOrder()"><i class="icon ion-android-cancel"></i> Cancel</button>
+        <button class="button col" ng-click="sellWithBarcode()"><i class="icon ion-ios-barcode"></i> Barcode</button>
+        <button class="col" ng-click="payForProds()"><i class="icon ion-card"></i> Payment </button>
+    </div>
+</ion-view>

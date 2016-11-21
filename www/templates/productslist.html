@@ -1,0 +1,36 @@
+<ion-modal-view title="">
+
+    <div class="bar bar-header bar-light" style="background-color: #434858">
+        <span><img src="img/favicon-32x32.png" alt="UP" height="30px" width="60px"
+                   style="padding-left: 30px"></span>
+        <p class="title text-center" style="color: #f5f6fa;">Search Product</p>
+        <button class="button button-clear pull-right" ng-click="closeProductList()">
+            <i class="ion ion-ios-close" style="font-size: 30px; color: #f5f6fa"></i></button>
+    </div>
+    <ion-content  style="background-image: url('img/pos_bg.jpg');" class="has-header">
+
+        <div class="bar bar-header item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input type="search" placeholder="Search for product" ng-model="searchProd">
+            </label>
+        </div>
+
+        <div class="card" style="padding-top: 10px">
+            <div class="list">
+                <div class="col" ng-repeat="item in products|filter:searchProd" ng-click="addProd(item)">
+                    <div class="item item-thumbnail-left">
+                        <img src="{{url}}/upload/inventory/{{item.image_url}}">
+                        <h2 style="text-transform: capitalize">{{item.item_name}}</h2>
+                        <p>Kshs. {{item.product_price}}</p>
+                    </div>
+                </div>
+                <div class="list padding" ng-show="!products.length">
+                    <span class="ion ion-android-warning">
+                        There is no inventory
+                    </span>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

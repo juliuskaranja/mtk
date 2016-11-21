@@ -1,0 +1,62 @@
+<ion-view style="background-color: #f5f6fa">
+  <style>
+    .username::-webkit-input-placeholder {
+      color: #434858;
+    }
+
+    .username:-moz-placeholder { /* Firefox 18- */
+      color: #434858;
+    }
+
+    .username::-moz-placeholder {  /* Firefox 19+ */
+      color: #434858;
+    }
+
+    .username:-ms-input-placeholder {
+      color: #434858;
+    }
+
+    .password::-webkit-input-placeholder {
+      color: #434858;
+    }
+
+    .password:-moz-placeholder { /* Firefox 18- */
+      color: #434858;
+    }
+
+    .password::-moz-placeholder {  /* Firefox 19+ */
+      color: #434858;
+    }
+
+    .password:-ms-input-placeholder {
+      color: #434858;
+    }
+
+
+  </style>
+  <ion-content class=" padding" style=" background-image: url('img/login-processes_2.png'); -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; ">
+    <div style="text-align: center">
+      <img src="img/logo.svg" style=" height: 40%; width: 100%">
+    </div>
+
+    <form ng-submit="loginRetailer(user)" style="margin-top:40%">
+      <label class="item item-input"  style="border: #434858 1px solid;border-radius: 25px; background-color: transparent">
+        <span class="ion ion-person"></span> &nbsp; &nbsp; &nbsp;
+        <input type="text" class="username" autocomplete="off" ng-model="user.username"
+               placeholder="Username" style="background-color: transparent; color: #434858">
+      </label>
+      <label class="item item-input" style="border: #434858 1px solid;border-radius: 25px; margin-top: 5px; background-color: transparent; color: #434858">
+        <span class="ion ion-locked"></span> &nbsp; &nbsp; &nbsp;
+        <input type="password" class="password" autocomplete="off" placeholder="Pin" ng-model="user.pin" style="background-color: transparent">
+      </label>
+
+        <button class="button button-clear button-outline button-block " type="submit"
+                style="border: solid 1px #f5f6fa; color: #434858; background-color: #f5f6fa; border-radius: 25px;
+                margin-top: 10px">Log In</button>
+    </form>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,88 @@
+ <ion-modal-view title="">
+    <div class="bar bar-header bar-light" style="background-color: #434858">
+        <span><img src="img/favicon-32x32.png" alt="UP" height="30px" width="60px"
+                   style="padding-left: 30px"></span>
+        <p class="title text-center" style="color: #f5f6fa;">Check out</p>
+        <button class="button button-clear pull-right" ng-click="closePaymentMod()">
+            <i class="ion ion-ios-close" style="font-size: 30px; color: #f5f6fa"></i></button>
+    </div>
+    <ion-content style="background-image: url('img/pos_bg.jpg'); margin-top: 35px">
+        <form ng-submit="sellProds(sale)" class="card" style="padding-top: 10px">
+            <div class="list">
+                <div class="item-input-inset item item-input item-stacked-label">
+                    <span class="input-label">Sale Note:</span>
+                    <label>
+                        <textarea rows="2"></textarea>
+                    </label>
+
+                </div>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Paying By
+                    </div>
+                    <select ng-model="sale.payBy" ng-change="changePayment()">
+                        <option value="Cash"><i class="icon ion-social-usd-outline"></i> Cash</option>
+                        <option value="Credit">Credit</option>
+                        <option value="Credit">Credit</option>
+                        <option value="Cheque">Cheque</option>
+                        <option value="Mpesa">Mpesa</option>
+                        <option value="Airtel Money">Airtel Money</option>
+                    </select>
+                </label>
+
+
+                <div class="item item-input">
+                    <span class="input-label">Amount Paid Kshs.</span>
+                    <input type="number" ng-model="sale.TotalAmount" ng-value="0">
+                </div>
+
+                <div class="item item-input" ng-show="sale.payBy == 'Mpesa' || sale.payBy == 'Airtel Money'">
+                    <span class="input-label">Trans. Code</span>
+                    <input type="text">
+                </div>
+
+                <div class="item item-input" ng-show="sale.payBy == 'Cheque'">
+                    <span class="input-label">Cheque No.</span>
+                    <input type="text">
+                </div>
+
+                <div class="item item-input" ng-show="sale.payBy == 'Credit'">
+                    <span class="input-label" id="datetimepicker">Due Date</span>
+                    <input type="text">
+                </div>
+                <!--
+                <ionic-datepicker idate="currentDate" disablepreviousdates="true"  callback="datePickerCallback">
+                    <button class="button button-block button-positive" type="button"> {{ currentDate | date:'dd - MMMM - yyyy' }}    </button>
+                </ionic-datepicker>-->
+
+
+                <div class="item item-input">
+                    <span class="input-label">Total Items</span>
+                    <span><input type="text" readonly ng-value="getItems()"></span>
+                </div>
+
+
+                <div class="item item-input">
+                    <span class="input-label">Total Payable Kshs: </span>
+                    <span><input type="text" readonly  ng-value="getTotal()"></span>
+                </div>
+
+                <div class="item item-input" ng-show="getBalance()>=0">
+                    <span class="input-label">Balance Kshs: </span>
+                    <span><input type="text" readonly  ng-value="getBalance()"></span>
+                </div>
+
+                <div class="item item-input" ng-show="getBalance()<0">
+                    <span class="input-label">Due Amount Kshs: </span>
+                    <span><input type="text" readonly  ng-value="getDueAmount()"></span>
+                </div>
+
+
+                <label class="item">
+                    <button class="button button-block btn-myButton" type="submit" >
+                        <i class="ion ion-ios-paperplane"></i>&nbsp;Submit</button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

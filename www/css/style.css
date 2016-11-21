@@ -1,0 +1,24 @@
+/* Empty. Add your own CSS if you like */
+.btn-myButton{
+    background-color: #434858;
+    color: #f5f6fa;
+}
+
+.myBackImg{
+    /*background:linear-gradient(0deg,rgba(245, 246, 250, 0.77),rgba(245, 246, 250, 0.77)),url("../img/login-processes_2.png");*/
+    background-image: url("../img/pos_bg_2.jpg");
+-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*background: url("../img/login-processes_2.png"),rgba(67, 72, 88, 0.98);*/
+}
+
+ion-item.item.item-complex.myMenuItem>*{
+    background-color: #434858;
+    color: #f5f6fa;
+}
+ion-item.item.myMenuItem{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
