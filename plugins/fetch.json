@@ -64,6 +64,14 @@
         "is_top_level": true,
         "variables": {}
     },
+    "com.attendee.barcodegenerator": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-barcode-generator"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
     "phonegap-plugin-barcodescanner": {
         "source": {
             "type": "registry",

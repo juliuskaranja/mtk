@@ -1,0 +1,27 @@
+{
+  "name": "cordova-barcode-generator",
+  "version": "0.0.4",
+  "description": "Plugin for generate barcode type 128",
+  "cordova": {
+    "id": "com.attendee.barcodegenerator",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Attendee/barcodeGenerator.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Attendee, Pongnat Phongan, Nattaphon Kanusattayanont",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Attendee/barcodeGenerator/issues"
+  },
+  "homepage": "https://github.com/Attendee/barcodeGenerator#readme"
+}

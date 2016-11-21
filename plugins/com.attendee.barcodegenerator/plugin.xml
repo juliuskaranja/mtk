@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.attendee.barcodegenerator" version="0.0.4" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>barcode-generator</name>
+	<DESCRIPTION>Plugin for generate Barcode</DESCRIPTION>
+	<js-module name="BarcodeGenerator" src="www/BarcodeGenerator.js">
+		<clobbers target="cordova.plugins.BarcodeGenerator" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="BarcodeGenerator">
+				<param name="android-package" value="com.attendee.barcodegenerator.BarcodeGenerator" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml" />
+		<source-file src="src/android/BarcodeGenerator.java" target-dir="src/com/attendee/barcodegenerator" />
+		<source-file src="src/android/core-3.2.1.jar" target-dir="libs"/>
+	</platform>
+	<platform name="ios">
+  		<config-file target="config.xml" parent="/*">
+    		<feature name="BarcodeGenerator">
+      			<param name="ios-package" value="BarcodeGenerator" />
+    		</feature>
+  		</config-file>
+  		<header-file src="src/ios/BarcodeGenerator.h" target-dir="src/com/attendee/barcodegenerator"/>
+  		<source-file src="src/ios/BarcodeGenerator.m" target-dir="src/com/attendee/barcodegenerator"/>
+	</platform>
+</plugin>
